@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1100" role="img" aria-label="DJ Nucho">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#020713"/><stop offset=".55" stop-color="#041c38"/><stop offset="1" stop-color="#00101f"/></linearGradient>
+ <linearGradient id="neon" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7df4ff"/><stop offset=".45" stop-color="#18a8ff"/><stop offset="1" stop-color="#005cff"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <radialGradient id="spot"><stop stop-color="#18a8ff" stop-opacity=".45"/><stop offset="1" stop-color="#18a8ff" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="900" height="1100" fill="url(#bg)"/>
+<circle cx="700" cy="230" r="360" fill="url(#spot)"/><circle cx="180" cy="850" r="320" fill="url(#spot)"/>
+<g fill="none" stroke="url(#neon)" stroke-width="5" opacity=".6" filter="url(#glow)">
+ <path d="M30 900 Q170 700 320 900 T610 900 T900 900"/><path d="M0 970 Q160 790 330 970 T660 970 T920 970"/>
+</g>
+<g transform="translate(450 430)">
+ <circle r="210" fill="#020914" stroke="#18a8ff" stroke-width="7" filter="url(#glow)"/>
+ <circle r="185" fill="none" stroke="#7df4ff" stroke-width="2" opacity=".7"/>
+ <path d="M-120 -40 Q0 -180 120 -40" fill="none" stroke="#18a8ff" stroke-width="18" stroke-linecap="round"/>
+ <path d="M-135 -20 L-150 95 Q-115 125 -85 90 L-75 5" fill="#061a31" stroke="#7df4ff" stroke-width="7"/>
+ <path d="M135 -20 L150 95 Q115 125 85 90 L75 5" fill="#061a31" stroke="#7df4ff" stroke-width="7"/>
+ <circle cx="-70" cy="10" r="20" fill="#7df4ff"/><circle cx="70" cy="10" r="20" fill="#7df4ff"/>
+ <path d="M-70 105 Q0 155 70 105" fill="none" stroke="#7df4ff" stroke-width="8" stroke-linecap="round"/>
+ <path d="M-95 185 Q0 230 95 185" fill="none" stroke="#18a8ff" stroke-width="12" stroke-linecap="round"/>
+</g>
+<text x="450" y="780" text-anchor="middle" fill="#fff" font-family="Arial,Helvetica,sans-serif" font-size="92" font-weight="900" font-style="italic" filter="url(#glow)">DJ NUCHO</text>
+<text x="450" y="850" text-anchor="middle" fill="#7df4ff" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="8">MUSIC • VIBES • EVENTS</text>
+<g transform="translate(450 960)" fill="none" stroke="#18a8ff" stroke-width="7" stroke-linecap="round" filter="url(#glow)">
+ <path d="M-300 0h35M-240 0h35M-180 0h35M-120 0h35M-60 0h35M0 0h35M60 0h35M120 0h35M180 0h35M240 0h35"/>
+</g>
+</svg>
