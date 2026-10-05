@@ -59,9 +59,14 @@ footer{border-top:1px solid var(--line);padding:30px 22px;color:#7f94aa;text-ali
 @keyframes ambient{from{opacity:.65;transform:scale(1)}to{opacity:1;transform:scale(1.04)}}
 @media(max-width:900px){.links{display:none}.heroIn{grid-template-columns:1fr}.visual{min-height:380px}.heroPhoto{min-height:365px}.grid{grid-template-columns:1fr}.section{padding:65px 20px}.hero{padding-top:55px}.hero h1{font-size:78px}.heroCopy{padding-top:10px}.jungle{display:none}}
 </style>
-</head>
+<style>
+.weatherWrap{max-width:1280px;margin:0 auto;padding:0 22px}
+.weatherCard{position:relative;overflow:hidden;background:linear-gradient(135deg,rgba(3,24,54,.96),rgba(2,7,20,.96));border:1px solid rgba(104,237,255,.72);border-radius:26px;padding:28px;box-shadow:0 0 8px #fff,0 0 25px var(--cyan),0 0 55px rgba(0,110,255,.5);margin-top:-35px;z-index:10}
+.weatherTop{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}.weatherPlace{color:var(--cyan);font-weight:900;letter-spacing:2px;font-size:12px}.weatherUpdated{color:#8ea9bf;font-size:11px;margin-top:7px}.weatherMain{display:flex;align-items:center;gap:16px;margin-top:18px}.weatherIcon{font-size:52px;line-height:1}.weatherTemp{font-size:58px;font-weight:1000;text-shadow:0 0 8px #fff,0 0 22px var(--blue)}.weatherDesc{color:#dff8ff;font-weight:800}.weatherMeta{display:flex;gap:20px;flex-wrap:wrap;margin-top:16px;color:#b7d2e5;font-size:12px}.weatherMeta b{color:#fff}.forecast{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-top:22px}.forecastDay{background:rgba(0,17,38,.7);border:1px solid rgba(24,168,255,.22);border-radius:14px;padding:12px;text-align:center}.forecastDay strong{display:block;color:var(--cyan);font-size:11px}.forecastIcon{font-size:23px;margin:7px 0}.forecastTemp{font-size:12px;font-weight:900}.weatherError{color:#ffb4c7;font-size:12px;margin-top:12px}
+@media(max-width:700px){.weatherWrap{padding:0 14px}.weatherCard{margin-top:-15px;padding:20px}.weatherTop{display:block}.weatherMain{margin-top:14px}.weatherTemp{font-size:48px}.forecast{grid-template-columns:repeat(5,minmax(62px,1fr));overflow-x:auto}.forecastDay{min-width:62px}}
+</style></head>
 <body>
-<nav class="nav"><div class="navin"><a class="logo" href="#home">DJ <span>NUCHO</span></a><div class="links"><a href="#home">HOME</a><a href="#about">ABOUT</a><a href="#music">MUSIC</a><a href="#soundcloud">SOUNDCLOUD</a><a href="#events">EVENTS</a><a href="#gallery">GALLERY</a><a href="#contact">CONTACT</a></div></div></nav>
+<nav class="nav"><div class="navin"><a class="logo" href="#home">DJ <span>NUCHO</span></a><div class="links"><a href="#home">HOME</a><a href="#about">ABOUT</a><a href="#music">MUSIC</a><a href="#soundcloud">SOUNDCLOUD</a><a href="#weather">WEATHER</a><a href="#events">EVENTS</a><a href="#gallery">GALLERY</a><a href="#contact">CONTACT</a></div></div></nav>
 
 <header class="hero" id="home">
 <img class="heroBg" src="assets/dj-nucho.jpg?v=5" alt="" aria-hidden="true">
@@ -79,7 +84,12 @@ footer{border-top:1px solid var(--line);padding:30px 22px;color:#7f94aa;text-ali
 </div>
 </header>
 
-<section class="section" id="about"><div class="kicker">ABOUT DJ NUCHO</div><h2>Music Connects People</h2><p>DJ Nucho is a UK-based DJ bringing Afrohouse, Afrobeat, Afrotech, Funk Brasileiro, Reggaeton, R&amp;B and Kizomba. The goal is simple: read the room, connect people through music and keep the vibe moving.</p></section>
+<section class="weatherWrap" id="weather">
+<div class="weatherCard">
+<div class="weatherTop"><div><div class="kicker">LIVE WEATHER</div><div class="weatherPlace">BOSTON, LINCOLNSHIRE • UNITED KINGDOM</div><div class="weatherUpdated" id="weatherUpdated">Updating weather…</div></div><div class="tag">AUTO UPDATED</div></div>
+<div class="weatherMain"><div class="weatherIcon" id="weatherIcon">⛅</div><div><div class="weatherTemp"><span id="weatherTemp">--</span>°C</div><div class="weatherDesc" id="weatherDesc">Loading current conditions…</div><div class="weatherMeta"><span>Feels <b id="weatherFeels">--°C</b></span><span>Humidity <b id="weatherHumidity">--%</b></span><span>Wind <b id="weatherWind">-- km/h</b></span></div></div></div>
+<div class="forecast" id="weatherForecast"></div><div class="weatherError" id="weatherError"></div>
+</div></section>\n<section class="section" id="about"><div class="kicker">ABOUT DJ NUCHO</div><h2>Music Connects People</h2><p>DJ Nucho is a UK-based DJ bringing Afrohouse, Afrobeat, Afrotech, Funk Brasileiro, Reggaeton, R&amp;B and Kizomba. The goal is simple: read the room, connect people through music and keep the vibe moving.</p></section>
 
 <section class="section" id="music"><div class="kicker">DJ NUCHO SELECTIONS</div><h2>Choose Your Vibe</h2><p>Tap a music style to see my selected tracks. Every song opens directly on YouTube so you can listen, save or use it for your next DJ set.</p>
 <style>
@@ -187,5 +197,24 @@ footer{border-top:1px solid var(--line);padding:30px 22px;color:#7f94aa;text-ali
 
 <section class="section" id="contact"><div class="contact"><div class="kicker">BOOKING</div><h2>Let's make your event unforgettable.</h2><p>For DJ bookings, karaoke, private parties, birthdays, bars, clubs and events, get in touch.</p><p><strong>DJ NUCHO</strong><br>Boston, United Kingdom</p><a class="btn" href="mailto:elton_swart@hotmail.com">EMAIL FOR BOOKING →</a></div></section>
 <footer>© 2026 DJ Nucho • Good Music • Good Vibes • Always</footer>
-</body>
+<script>
+(function(){
+const lat=52.9789,lon=-0.0266;
+const api='https://api.open-meteo.com/v1/forecast?latitude='+lat+'&longitude='+lon+'&current=temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Europe%2FLondon&forecast_days=5';
+const codes={0:['☀️','Clear sky'],1:['🌤️','Mainly clear'],2:['⛅','Partly cloudy'],3:['☁️','Overcast'],45:['🌫️','Fog'],48:['🌫️','Rime fog'],51:['🌦️','Light drizzle'],53:['🌦️','Drizzle'],55:['🌧️','Heavy drizzle'],61:['🌦️','Light rain'],63:['🌧️','Rain'],65:['🌧️','Heavy rain'],71:['🌨️','Light snow'],73:['❄️','Snow'],75:['❄️','Heavy snow'],80:['🌦️','Rain showers'],81:['🌧️','Rain showers'],82:['⛈️','Heavy showers'],95:['⛈️','Thunderstorm'],96:['⛈️','Thunderstorm + hail'],99:['⛈️','Thunderstorm + hail']};
+function set(id,v){const el=document.getElementById(id);if(el)el.textContent=v}
+async function loadWeather(){
+ try{
+  const r=await fetch(api,{cache:'no-store'}); if(!r.ok) throw new Error('Weather request failed');
+  const d=await r.json(), c=d.current, info=codes[c.weather_code]||['🌤️','Current conditions'];
+  set('weatherIcon',info[0]); set('weatherTemp',Math.round(c.temperature_2m)); set('weatherFeels',Math.round(c.apparent_temperature)+'°C'); set('weatherHumidity',Math.round(c.relative_humidity_2m)+'%'); set('weatherWind',Math.round(c.wind_speed_10m)+' km/h'); set('weatherDesc',info[1]);
+  const now=new Date(); set('weatherUpdated','Last updated: '+now.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}));
+  const f=document.getElementById('weatherForecast'); f.innerHTML='';
+  d.daily.time.forEach((date,i)=>{const x=codes[d.daily.weather_code[i]]||['🌤️',''];const day=new Date(date+'T12:00:00').toLocaleDateString('en-GB',{weekday:'short'});const el=document.createElement('div');el.className='forecastDay';el.innerHTML='<strong>'+day+'</strong><div class="forecastIcon">'+x[0]+'</div><div class="forecastTemp">'+Math.round(d.daily.temperature_2m_max[i])+'° / '+Math.round(d.daily.temperature_2m_min[i])+'°</div>';f.appendChild(el)});
+  set('weatherError','');
+ }catch(e){set('weatherError','Live weather is temporarily unavailable. Please refresh in a moment.')}
+}
+loadWeather(); setInterval(loadWeather,600000);
+})();
+</script></body>
 </html>
